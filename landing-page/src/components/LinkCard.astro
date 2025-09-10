@@ -1,0 +1,12 @@
+---
+const { title, icon, href } = Astro.props;
+---
+
+<div class="link-container">
+	<a href={href}>
+		<i id="icon" class={icon}></i>
+		<label for="icon">{title}</label>
+	</a>
+</div>
+
+<style></style>
