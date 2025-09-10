@@ -29,7 +29,17 @@ const links = [
 	</section>
 	<hr />
 
-	<div></div>
+	<section>
+		<div>
+			{
+				links.map((item) => {
+					return (
+						<LinkCard title={item.title} item={item.icon} href={item.href} />
+					);
+				})
+			}
+		</div>
+	</section>
 </Layout>
 
 <style>
