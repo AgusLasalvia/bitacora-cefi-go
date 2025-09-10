@@ -15,7 +15,7 @@ func init() {
 	fmt.Println("Conectando a:", "bitacora.db")
 
 	var err error
-	Database, err = sql.Open("sqlite3", databaseUrl)
+	Database, err = sql.Open("sqlite3", "bitacora.db")
 	if err != nil {
 		log.Fatal("Error creando conexión: ", err)
 	}
