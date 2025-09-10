@@ -1,1 +1,6 @@
-bitacora*
+bitacora/bitacora
+bitacora/bitacora.*
+.env
+
+
+landing-page/node_modules
