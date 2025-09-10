@@ -11,8 +11,8 @@ import (
 var Database *sql.DB
 
 func init() {
-	databaseUrl := "bitacora.db"
-	fmt.Println("Conectando a:", databaseUrl)
+
+	fmt.Println("Conectando a:", "bitacora.db")
 
 	var err error
 	Database, err = sql.Open("sqlite3", databaseUrl)
