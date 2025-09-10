@@ -36,7 +36,7 @@ func init() {
 		received TEXT,
 		returned TEXT,
 		comments TEXT,
-		timestamp TEXT
+		timestamp INTEGER
 	);`
 
 	_, err = Database.Exec(createTables)
