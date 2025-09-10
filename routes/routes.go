@@ -8,14 +8,17 @@ import (
 func SetupRoutes() *gin.Engine {
 	r := gin.Default()
 
+	// allow cors && specific methods
 	r.Use(cors.New(
 		cors.Config{
-		AllowOrigins: []string{"*"},
-		AllowMethods: []string{"POST", "GET"},
-		AllowHeaders: []string{"Content-Type"},
+			AllowOrigins: []string{"*"},
+			AllowMethods: []string{"POST", "GET"},
+			AllowHeaders: []string{"Content-Type"},
 		},
 	))
 
+	// inport && init routes
+	RecordRouter(r)
 
 	return r
 }
