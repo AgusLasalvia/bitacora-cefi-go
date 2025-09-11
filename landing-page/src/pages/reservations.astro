@@ -28,6 +28,7 @@ import Layout from "../layouts/Layout.astro";
 						solicitar acceso al sistema de reservas, gestionando su registro con
 						el referente de su Departamento.
 					</p>
+					<a href="https://mrbs.fq.edu.uy/">Reservar</a>
 				</div>
 
 				<!-- Columna derecha -->
@@ -82,7 +83,6 @@ import Layout from "../layouts/Layout.astro";
 
 	.reservation-content p {
 		font-size: 15px;
-
 	}
 
 	/* Contenedor principal en grid */
@@ -122,6 +122,11 @@ import Layout from "../layouts/Layout.astro";
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		transition: transform 0.2s ease;
+	}
+
+	.reservation-content-box:hover {
+		transform: scale(1.05);
 	}
 
 	/* Enlaces */
