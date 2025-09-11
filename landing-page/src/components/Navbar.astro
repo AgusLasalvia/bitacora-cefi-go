@@ -1,14 +1,19 @@
 <nav>
 	<div class="logos">
-		<img src="/logo-quimica.png" alt="logo" />
-		<img src="/udelar.png" alt="logo FQ" />
+		<a href="https://prueba.fq.edu.uy">
+			<img src="/logo-quimica.png" alt="logo FQ" />
+		</a>
+		<a href="https://udelar.edu.uy">
+			<img src="/udelar.png" alt="logo UDELAR" />
+		</a>
 	</div>
 
 	<ul>
-		<a href="">Equipos</a>
-		<a href="">Reservas</a>
-		<a href="">Docentes</a>
-		<a href="">Comision</a>
+		<a href="/">Home</a>
+		<a href="/equipment">Equipos</a>
+		<a href="/reservations">Reservas</a>
+		<a href="/teachers">Docentes</a>
+		<a href="/commission">Comision</a>
 	</ul>
 </nav>
 
@@ -31,17 +36,40 @@
 		flex-direction: row;
 		border-bottom: 1px solid grey;
 		padding-bottom: 10px;
+		max-height: 66.41px;!important
 	}
 
-	nav a {
-		text-decoration: none;
-		color: black;
-		font-size: larger;
-	}
+nav a {
+    position: relative; /* necesario para el pseudo-elemento */
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding-bottom: 2px; /* espacio para el subrayado */
+}
+
+/* Pseudo-elemento que será la línea */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* empieza desde el centro */
+    width: 0; /* inicialmente invisible */
+    height: 2px;
+    background-color: #6e94ac;
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+/* Al hacer hover, la línea crece hacia los lados */
+nav a:hover::after {
+    width: 100%;
+    left: 0; /* se extiende desde la izquierda hasta la derecha */
+}
 
 	nav ul {
 		display: flex;
 		flex-direction: row;
 		gap: 80px;
 	}
+
+
 </style>
