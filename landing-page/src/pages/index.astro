@@ -26,57 +26,112 @@ const links = [
 				frameborder="0"
 				allowfullscreen></iframe>
 		</div>
+		<div class="hero-links">
+			<a class="hero-link" href="/about">¿Qué es el CeFI?</a>
+			<a class="hero-link" href="/activities">Actividades Individuales</a>
+		</div>
 	</section>
+
 	<hr />
 
-	<section>
-		<div>
+	<section class="enlaces">
+		<h2>Enlaces de Interés</h2>
+		<div class="links-container">
 			{
-				links.map((item) => {
-					return (
-						<LinkCard title={item.title} item={item.icon} href={item.href} />
-					);
-				})
+				links.map((item) => (
+					<LinkCard title={item.title} icon={item.icon} href={item.href} />
+				))
 			}
 		</div>
 	</section>
 </Layout>
 
 <style>
+	.hero-links {
+		display: flex;
+		width: 80%;
+		justify-content: center;
+		gap: 80px;
+		margin-top: 50px;
+	}
+
+	.hero-link {
+		background-color: #ff6d62;
+		color: white;
+		text-decoration: none;
+		height: 55px;
+		width: 200px;
+		font-size: 20px;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 30px;
+		transition: background-color 0.6s;
+	}
+
+	.hero-link:hover {
+		background-color: #ef1809;
+	}
+
+	/* Sección general */
 	section {
 		display: flex;
 		flex-direction: column;
-		flex-wrap: wrap;
 		align-items: center;
-		justify-content: space-between;
 		max-width: 900px;
 		text-align: center;
-		margin: 50px;
+		margin: 50px auto;
+		padding: 0 10px;
 	}
 
 	.hero h1 {
 		font-size: 60px;
 		color: #6e94ac;
+		margin-bottom: 20px;
 	}
 
 	.hero p {
 		font-size: 20px;
+		color: #333;
 	}
 
 	.video {
 		width: 100%;
+		margin-top: 30px;
 	}
 
 	.hero iframe {
 		width: 100%;
 		height: 450px;
 		border-radius: 20px;
+		border: none;
+	}
+
+	h2 {
+		font-size: 40px;
+		color: #6e94ac;
+		margin: 60px 0 30px;
 	}
 
 	hr {
 		border: none;
 		border-bottom: 2px solid black;
 		width: 50%;
-		margin: 20px auto;
+		margin: 40px auto;
+	}
+
+	/* Sección de enlaces */
+	.enlaces {
+		padding-bottom: 100px;
+	}
+
+	.links-container {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 40px;
+		margin-bottom: 50px;
 	}
 </style>

@@ -2,11 +2,25 @@
 const { title, icon, href } = Astro.props;
 ---
 
-<div class="link-container">
+<div class="link-content">
 	<a href={href}>
-		<i id="icon" class={icon}></i>
+		<i id="icon" class=`${icon}`></i>
 		<label for="icon">{title}</label>
 	</a>
 </div>
 
-<style></style>
+<style>
+	.link-content a {
+		display: flex;
+		flex-direction: column;
+		text-decoration: none;
+		color: grey;
+		font-weight: 600;
+		font-size: 30px;
+		transition: color 1s;
+	}
+
+	.link-content a:hover{
+		color:#6e94ac
+	}
+</style>

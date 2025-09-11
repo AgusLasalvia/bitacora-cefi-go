@@ -1,0 +1,84 @@
+<footer class="footer">
+	<div class="footer-content">
+		<div class="footer-info">
+			<h3>CeFI - Facultad de Química</h3>
+			<p>Universidad de la República</p>
+			<p>Montevideo, Uruguay</p>
+		</div>
+
+		<div class="footer-links">
+			<h4>Enlaces</h4>
+			<ul>
+				<li><a href="/equipment">Equipos</a></li>
+				<li><a href="/reservations">Reservas</a></li>
+				<li><a href="/teachers">Docentes</a></li>
+				<li><a href="/comition">Comisión</a></li>
+			</ul>
+		</div>
+
+		<div class="footer-contact">
+			<h4>Contacto</h4>
+			<p>Email: <a href="mailto:cefi@fq.edu.uy">cefi@fq.edu.uy</a></p>
+			<p>Tel: (+598) 1234 5678</p>
+		</div>
+	</div>
+
+	<div class="footer-bottom">
+		<p>
+			&copy; {new Date().getFullYear()} CeFI - Facultad de Química. Todos los derechos
+			reservados.
+		</p>
+	</div>
+</footer>
+
+<style>
+	/* Footer */
+	.footer {
+		background-color: #f2f2f2;
+		padding: 40px 20px 20px;
+		color: #333;
+		text-align: center;
+		width: 100%;
+	}
+
+	.footer-content {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		gap: 30px;
+		max-width: 1000px;
+		margin: auto;
+	}
+
+	.footer-info,
+	.footer-links,
+	.footer-contact {
+		min-width: 200px;
+	}
+
+	.footer h3,
+	.footer h4 {
+		color: #6e94ac;
+	}
+
+	.footer-links ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	.footer-links ul li a {
+		color: #6e94ac;
+		text-decoration: none;
+	}
+
+	.footer-links ul li a:hover {
+		text-decoration: underline;
+	}
+
+	.footer-bottom {
+		margin-top: 30px;
+		font-size: 14px;
+		color: #777;
+	}
+</style>
