@@ -83,6 +83,7 @@ const links = [
 		text-align: center;
 		margin: 50px auto;
 		padding: 0 10px;
+		animation: fadeIn 0.8s ease-in-out forwards !important; /* fade-in de 0.5s */
 	}
 
 	.hero h1 {
@@ -99,7 +100,9 @@ const links = [
 	.video {
 		width: 100%;
 		margin-top: 30px;
-		transition: transform 0.2s ease,box-shadow .2s ease;
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
 		border-radius: 20px;
 	}
 

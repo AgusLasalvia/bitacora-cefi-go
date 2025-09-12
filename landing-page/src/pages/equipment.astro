@@ -1,35 +1,210 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import EquipmentCard from "../components/EquipmentCard.astro";
+
+const equipments = [
+	{
+		title: "Microscopio electrónico de barrido de mesa COXEM EM-30N",
+		description: "Guía rápida. Manual.",
+		reference: "—",
+		email: "",
+	},
+	{
+		title: "HPLC Shimadzu 40D",
+		description: "",
+		reference: "Daniel Lorenzo (IPTP)",
+		email: "dlorenzo@fq.edu.uy",
+	},
+	{
+		title: "UPLC Shimadzu Nexera XS",
+		description: "",
+		reference: "Daniel Lorenzo (IPTP)",
+		email: "dlorenzo@fq.edu.uy",
+	},
+	{
+		title: "GC Shimadzu GC - 2030",
+		description: "Con generadores de aire, nitrógeno e hidrógeno.",
+		reference: "Daniel Lorenzo (IPTP)",
+		email: "dlorenzo@fq.edu.uy",
+	},
+	{
+		title: "NMR de mesa 125 MHz Qmagnetics",
+		description: "",
+		reference: "Gonzalo Hernández (DQO)",
+		email: "gonzalohd@fq.edu.uy",
+	},
+	{
+		title: "Purificador de agua tipo I Thermo MICROPURE UV-ST",
+		description: "",
+		reference: "Inés Carrera (CIENFAR)",
+		email: "inescarrera@fq.edu.uy",
+	},
+	{
+		title: "Destilador de agua 8L/h FISTREEM CYCLON 8",
+		description:
+			"Con reservorio de 30 L. No retirar agua por debajo del mínimo indicado.",
+		reference: "Inés Carrera (CIENFAR)",
+		email: "inescarrera@fq.edu.uy",
+	},
+	{
+		title: "Osmotizador de agua",
+		description: "",
+		reference: "Daniel Lorenzo (IPTP)",
+		email: "dlorenzo@fq.edu.uy",
+	},
+	{
+		title: "Máquina de hielo en escamas ITV ICE QUEEN IQ 85",
+		description: "",
+		reference: "Daniel Lorenzo (IPTP)",
+		email: "dlorenzo@fq.edu.uy",
+	},
+	{
+		title: "Termociclador PCR TECHNE / COLE PARMER PRIME",
+		description: "",
+		reference: "Alejandra Medrano (CYTAL)",
+		email: "amedrano@fq.edu.uy",
+	},
+	{
+		title: "Transiluminador UV UVP VISI-BLUE VB-26V",
+		description: "Con filtro azul.",
+		reference: "Valentina Martin (CYTAL)",
+		email: "vmartinfq@gmail.com",
+	},
+	{
+		title: "Cuba de electroforesis THERMO SCIENTIFIC OWL EASY-CAST B2",
+		description: "Fuente de poder Thermo Scientific OWL EC300XL2.",
+		reference: "Alejandra Medrano (CYTAL)",
+		email: "amedrano@fq.edu.uy",
+	},
+	{
+		title: "Titulador automático STEROGLASS FLASH pH/TA/Chloride AS24 sampler",
+		description: "Modelo SQTJ074275.",
+		reference: "Alicia Mollo (DEC)",
+		email: "amollo@fq.edu.uy",
+	},
+	{
+		title: "Potenciostato/Galvanostato/ZRA Gamry IFC1010",
+		description: "",
+		reference: "Jorge Castiglioni (DETEMA)",
+		email: "jcastig@fq.edu.uy",
+	},
+	{
+		title: "Lector de microplacas BMG FluoSTAR Omega",
+		description:
+			"Lector multimodo con hasta seis modos de detección. Usa espectrómetro UV/VIS o filtros.",
+		reference: "Paula González (DEPBIO)",
+		email: "pgonzale@fq.edu.uy",
+	},
+	{
+		title: "Fotodocumentador Loccus L-PIX TOUCH 21X26",
+		description:
+			"Captura de geles ADN/ARN/Proteínas. Pantalla táctil, transiluminador incluido, exportación USB.",
+		reference: "Paula González (DEPBIO)",
+		email: "pgonzale@fq.edu.uy",
+	},
+	{
+		title: "pHmetro de mesa Oakton pH700",
+		description: "Incluye guía rápida y manual.",
+		reference: "Daniel Lorenzo (IPTP)",
+		email: "dlorenzo@fq.edu.uy",
+	},
+	{
+		title: "Espectrofotómetro UV Shimadzu UV-1900i",
+		description: "Con termostatizador de celdas peltier.",
+		reference: "Daniel Lorenzo (IPTP)",
+		email: "dlorenzo@fq.edu.uy",
+	},
+	{
+		title: "Espectrofotómetro FTIR Shimadzu IRSpirit",
+		description: "",
+		reference: "Daniel Lorenzo (IPTP)",
+		email: "dlorenzo@fq.edu.uy",
+	},
+	{
+		title: "Balanza analítica Shimadzu ATX224R",
+		description: "",
+		reference: "Daniel Lorenzo (IPTP)",
+		email: "dlorenzo@fq.edu.uy",
+	},
+];
 ---
 
 <Layout title="Equipos | CeFI">
 	<section class="equipment">
 		<h1>Equipos</h1>
+		<div class="equipment-content">
+			<p>
+				Para poder utilizar cualquier equipo se debe estar entrenado en su uso.
+				Contactar a los referentes de los equipos, docentes CeFI o
+				representantes de cada departamento para coordinar la capacitación
+				correspondiente. Es obligatorio el registro de uso de los equipos en la
+				bitácora.
+			</p>
+
+			<h2>Listado de Equipos</h2>
+
+			<div id="equipment-grid">
+				{
+					equipments.map((equipment) => (
+						<EquipmentCard
+							title={equipment.title}
+							description={equipment.description}
+							reference={equipment.reference}
+							email={equipment.email}
+						/>
+					))
+				}
+			</div>
+		</div>
 	</section>
 </Layout>
+
 <style>
 	.equipment {
 		max-width: 1100px;
 		width: 80%;
 		margin: auto;
-		/* margin-bottom: 40px; */
+		margin-bottom: 40px;
+		animation: fadeIn 0.8s ease-in-out forwards !important; 
 	}
 
 	.equipment h1 {
 		font-size: 60px;
 		color: #6e94ac;
-		/* margin-bottom: 20px; */
 		text-align: center;
 	}
 
 	.equipment h2 {
 		font-size: 24px;
 		color: #6e94ac;
-		/* margin-bottom: 12px; */
+		margin-top: 40px !important;
 		text-align: center;
 	}
 
-	.equipment strong {
-		color: #6e94ac;
+	.equipment-content p {
+		font-size: 15px;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+
+	#equipment-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+		width: 100%;
+		animation: fadeIn 1s ease-in-out forwards !important;
+	}
+
+	/* Responsive */
+	@media (max-width: 1024px) {
+		#equipment-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 768px) {
+		#equipment-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>
