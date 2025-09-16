@@ -31,10 +31,10 @@ func init() {
 		name TEXT NOT NULL,
 		lab TEXT NOT NULL,
 		equipment TEXT NOT NULL,
-		startDateTime TEXT NOT NULL,
-		endDateTime TEXT,
-		received TEXT,
-		returned TEXT,
+		startDateTime INTEGER NOT NULL,
+		endDateTime INTEGER,
+		received INTEGER,
+		returned INTEGER,
 		comments TEXT,
 		timestamp INTEGER
 	);`

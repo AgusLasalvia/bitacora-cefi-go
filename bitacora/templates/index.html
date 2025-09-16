@@ -131,9 +131,7 @@
 						<button type="button" class="btn btn-dark btn-lg" onclick="formVerification()">
 							<i class="bi bi-check-circle me-2"></i>Ingresar Datos
 						</button>
-						<button type="button" class="btn btn-secondary" onclick="loadLogsTable()">
-							<i class="bi bi-funnel-fill me-2"></i>Filtrar
-						</button>
+
 					</div>
 				</form>
 			</div>
@@ -145,20 +143,56 @@
 		</div>
 
 		<!-- TABLE SECTION -->
-		<div class="table-responsive">
-			<table class="table table-striped table-hover align-middle">
-				<thead class="table-dark">
-					<tr>
-						<th>ID</th>
-						<th>Laboratorio</th>
-						<th>Equipo</th>
-						<th>Fecha de Inicio</th>
-						<th>Hora de Inicio</th>
-						<th>Detalles</th>
-					</tr>
-				</thead>
-				<tbody id="tbody-logs"></tbody>
-			</table>
+		<div class="card shadow mb-4">
+			<div class="card-header">
+				<h4 class="mb-0">Listado de Registros</h4>
+			</div>
+			<div class="card-body">
+				<div class="d-flex justify-content-center align-items-center gap-2 mb-3">
+					<div class="input-group" style="max-width: 400px;">
+						<span class="input-group-text"><i class="bi bi-tools"></i></span>
+						<select class="form-select" id="slt-equipment">
+							<option selected disabled value="">Seleccione un equipo a buscar</option>
+							<option value="HPLC">HPLC</option>
+							<option value="UHPLC">UHPLC</option>
+							<option value="UHPLC-MS">UHPLC-MS</option>
+							<option value="GC">GC</option>
+							<option value="UV">UV</option>
+							<option value="FTIR">FTIR</option>
+							<option value="NMR">NMR</option>
+							<option value="TOC">TOC</option>
+							<option value="EXRF">EXRF</option>
+							<option value="Cuba electroforesis">Cuba electroforesis</option>
+							<option value="Documentador de geles">Documentador de geles</option>
+							<option value="Transiluminador">Transiluminador</option>
+							<option value="Transiluminador UV">Transiluminador UV</option>
+							<option value="Potenciostato">Potenciostato</option>
+							<option value="Lector de microplacas">Lector de microplacas</option>
+							<option value="PCR">PCR</option>
+							<option value="Titulador automático">Titulador automático</option>
+						</select>
+					</div>
+					<button type="button" class="btn btn-secondary" onclick="loadLogsTable()">
+						<i class="bi bi-funnel-fill me-2"></i>Filtrar
+					</button>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table table-striped table-hover align-middle">
+						<thead class="table-dark">
+							<tr>
+								<th>ID</th>
+								<th>Laboratorio</th>
+								<th>Equipo</th>
+								<th>Fecha de Inicio</th>
+								<th>Hora de Inicio</th>
+								<th>Detalles</th>
+							</tr>
+						</thead>
+						<tbody id="tbody-logs"></tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -210,7 +244,7 @@
 			fetch('/bitacora/item/form', {
 				headers: {
 					"Content-Type": "application/json",
-					"Authentication": sessionStorage.getItem("TOKEN")
+					// "Authentication": sessionStorage.getItem("TOKEN")
 				},
 				method: "POST",
 				body: JSON.stringify(form)
