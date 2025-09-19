@@ -32,6 +32,21 @@ func (rc *RecordController) AddRecord(c *gin.Context) {
 	c.JSON(http.StatusCreated, nil)
 }
 
-func (rc *RecordController) GetRecordByID(c *gin.Context) {}
+func (rc *RecordController) GetRecordByID(c *gin.Context) {
+	record, err := models.GetRecordByID(c.Query("id"))
+	if err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "NO se econtraron registros para ese equipo"})
+		return
+	}
+	c.JSON(http.StatusOK, record)
+}
 
-func (rc *RecordController) GetRecordByMachine(c *gin.Context) {}
+func (rc *RecordController) GetRecordByMachine(c *gin.Context) {
+	records, err := models.GetRecordByMachine(c.Query("machine"))
+	if err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "NO se econtraron registros para ese equipo"})
+		return
+	}
+	c.JSON(http.StatusOK, records)
+
+}

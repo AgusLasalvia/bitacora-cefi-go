@@ -152,7 +152,7 @@
 					<div class="input-group" style="max-width: 400px;">
 						<span class="input-group-text"><i class="bi bi-tools"></i></span>
 						<select class="form-select" id="slt-equipment">
-							<option selected disabled value="">Seleccione un equipo a buscar</option>
+							<option selected disabled value="">Seleccione un equipo a filtrar</option>
 							<option value="HPLC">HPLC</option>
 							<option value="UHPLC">UHPLC</option>
 							<option value="UHPLC-MS">UHPLC-MS</option>
@@ -241,10 +241,9 @@
 		}
 
 		const submitForm = (form) => {
-			fetch('/bitacora/item/form', {
+			fetch('/records', {
 				headers: {
 					"Content-Type": "application/json",
-					// "Authentication": sessionStorage.getItem("TOKEN")
 				},
 				method: "POST",
 				body: JSON.stringify(form)

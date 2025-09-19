@@ -24,6 +24,35 @@ func AddRecord(record core.Record) error {
 	return err
 }
 
+func GetRecordByID(id string	) (core.Record, error) {
+    var record core.Record
+
+    row := config.Database.QueryRow(`
+        SELECT id, name, lab, equipment, startDateTime, endDateTime, 
+               received, returned, comments, timestamp
+        FROM records
+        WHERE id = ?;
+    `, id)
+
+    err := row.Scan(
+        &record.ID,
+        &record.Name,
+        &record.Lab,
+        &record.Equipment,
+        &record.StartDateTime,
+        &record.EndDateTime,
+        &record.Received,
+        &record.Returned,
+        &record.Comments,
+        &record.Timestamp,
+    )
+    if err != nil {
+        return core.Record{}, err
+    }
+
+    return record, nil
+}
+
 func GetRecordByMachine(machine string) ([]core.Record, error) {
 	rows, err := config.Database.Query(`
 		SELECT TOP 10 id, name, lab, equipment, startDateTime, endDateTime, 
