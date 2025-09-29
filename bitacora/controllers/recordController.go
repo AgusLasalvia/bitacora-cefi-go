@@ -18,7 +18,7 @@ func (rc *RecordController) AddRecord(c *gin.Context) {
 	var incomingRecord core.Record
 
 	if err := c.ShouldBindJSON(&incomingRecord); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"erro": "Campos Invalidos"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Campos Invalidos"})
 		return
 	}
 

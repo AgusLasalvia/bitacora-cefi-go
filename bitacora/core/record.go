@@ -7,8 +7,8 @@ type Record struct {
 	Equipment     string `sql:"equipment"`
 	StartDateTime int64  `sql:"startDateTime"`
 	EndDateTime   int64  `sql:"endDateTime"`
-	Received      int    `sql:"received"`
-	Returned      int    `sql:"returned"`
+	Received      bool    `sql:"received"`
+	Returned      bool   `sql:"returned"`
 	Comments      string `sql:"comments"`
 	Timestamp     int64  `sql:"timestamp"`
 }
