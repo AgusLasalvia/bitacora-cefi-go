@@ -11,7 +11,7 @@ func RecordRouter(router *gin.Engine) {
 	route := router.Group("/records")
 	{
 		route.GET("/record", recordController.GetRecordByID)
-		route.GET("/mahine", recordController.GetRecordByMachine)
+		route.GET("/machine", recordController.GetRecordByMachine)
 		route.POST("/add", recordController.AddRecord)
 	}
 }
