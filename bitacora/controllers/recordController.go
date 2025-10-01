@@ -38,6 +38,7 @@ func (rc *RecordController) GetRecordByID(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"error": "NO se econtraron registros para ese equipo"})
 		return
 	}
+	// Change this funciton, it must return the item.html with all the records data
 	c.JSON(http.StatusOK, record)
 }
 
