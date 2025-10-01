@@ -65,7 +65,7 @@
                                 <input
                                     type="text"
                                     class="form-control readonly-input"
-                                    value="Juan Pérez"
+                                    value="{{ .Record.Name }}"
                                     readonly
                                 />
                             </div>
@@ -81,7 +81,7 @@
                                 <input
                                     type="text"
                                     class="form-control readonly-input"
-                                    value="Lab 101"
+                                    value="{{ .Record.Lab }}"
                                     readonly
                                 />
                             </div>
@@ -97,15 +97,17 @@
                                 <input
                                     type="text"
                                     class="form-control readonly-input"
-                                    value="HPLC"
+                                    value="{{ .Record.Equipment }}"
                                     readonly
                                 />
                             </div>
                         </div>
 
-                        <!-- Fecha -->
+                        <!-- Fecha y hora inicio -->
                         <div class="col-md-4">
-                            <label class="form-label">Fecha</label>
+                            <label class="form-label"
+                                >Fecha / Hora Inicio</label
+                            >
                             <div class="input-group">
                                 <span class="input-group-text"
                                     ><i class="bi bi-calendar"></i
@@ -113,39 +115,23 @@
                                 <input
                                     type="text"
                                     class="form-control readonly-input"
-                                    value="01/10/2025"
+                                    value="{{ .Start }}"
                                     readonly
                                 />
                             </div>
                         </div>
 
-                        <!-- Hora Inicio -->
+                        <!-- Fecha y hora fin -->
                         <div class="col-md-4">
-                            <label class="form-label">Hora Inicio</label>
+                            <label class="form-label">Fecha / Hora Fin</label>
                             <div class="input-group">
                                 <span class="input-group-text"
-                                    ><i class="bi bi-clock"></i
+                                    ><i class="bi bi-calendar"></i
                                 ></span>
                                 <input
                                     type="text"
                                     class="form-control readonly-input"
-                                    value="09:00"
-                                    readonly
-                                />
-                            </div>
-                        </div>
-
-                        <!-- Hora Fin -->
-                        <div class="col-md-4">
-                            <label class="form-label">Hora Fin</label>
-                            <div class="input-group">
-                                <span class="input-group-text"
-                                    ><i class="bi bi-clock"></i
-                                ></span>
-                                <input
-                                    type="text"
-                                    class="form-control readonly-input"
-                                    value="11:30"
+                                    value="{{ .End }}"
                                     readonly
                                 />
                             </div>
@@ -161,8 +147,12 @@
                                 <input
                                     class="form-check-input"
                                     type="checkbox"
-                                    id="received"
-                                    checked
+                                    {{
+                                    if
+                                    .Record.Received
+                                    }}checked{{
+                                    end
+                                    }}
                                     disabled
                                 />
                                 <label class="form-check-label ms-2"
@@ -177,8 +167,12 @@
                                 <input
                                     class="form-check-input"
                                     type="checkbox"
-                                    id="returned"
-                                    checked
+                                    {{
+                                    if
+                                    .Record.Returned
+                                    }}checked{{
+                                    end
+                                    }}
                                     disabled
                                 />
                                 <label class="form-check-label ms-2"
@@ -200,8 +194,7 @@
                                 style="height: 100px"
                                 readonly
                             >
-Se usó el equipo para análisis de muestra 103B. Sin incidentes.
-              </textarea
+{{ .Record.Comments }}</textarea
                             >
                         </div>
                     </div>

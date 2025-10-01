@@ -28,8 +28,6 @@ func SetupRoutes() *gin.Engine {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
-	r.GET("/item")
-
 	// inport && init routes
 	RecordRouter(r)
 

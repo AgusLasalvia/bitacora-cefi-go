@@ -10,7 +10,7 @@ func RecordRouter(router *gin.Engine) {
 	recordController := controllers.NewRecordController()
 	route := router.Group("/records")
 	{
-		route.GET("/record", recordController.GetRecordByID)
+		route.GET("/open", recordController.GetRecordByID)
 		route.GET("/machine", recordController.GetRecordByMachine)
 		route.POST("/add", recordController.AddRecord)
 	}

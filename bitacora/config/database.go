@@ -26,8 +26,8 @@ func init() {
 	}
 
 	createTables := `
-	CREATE TABLE IF NOT EXISTS records( 
-		id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, 
+	CREATE TABLE IF NOT EXISTS records(
+		id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
 		name TEXT NOT NULL,
 		lab TEXT NOT NULL,
 		equipment TEXT NOT NULL,
@@ -43,7 +43,6 @@ func init() {
 	if err != nil {
 		log.Fatal("Error creando tabla principal: ", err)
 	}
-
 
 	log.Println("✅ Base de datos conectada con éxito y tablas listas")
 }
