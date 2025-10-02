@@ -328,6 +328,7 @@
                                     <th>Laboratorio</th>
                                     <th>Equipo</th>
                                     <th>Fechas/Hora</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody id="tbody-logs"></tbody>
@@ -389,7 +390,7 @@
             };
 
             const submitForm = (form) => {
-                fetch("/records/add", {
+                fetch("/bitacora/records/add", {
                     headers: {
                         "Content-Type": "application/json",
                     },
@@ -398,8 +399,21 @@
                 }).then((incoming) => {
                     incoming.status != 201
                         ? error(incoming)
-                        : alert("Ingresado exitosamente");
+                        : (alert("Ingresado exitosamente"),
+                          cleanFieldsOnSuccess());
                 });
+            };
+
+            const cleanFieldsOnSuccess = () => {
+                document.getElementById("name").value = "";
+                document.getElementById("lab").value = "";
+                document.getElementById("equipment").value = "";
+                document.getElementById("date").value = "";
+                document.getElementById("startTime").value = "";
+                document.getElementById("endTime").value = "";
+                document.getElementById("recived").checked = false;
+                document.getElementById("returned").checked = false;
+                document.getElementById("comments").value = "";
             };
 
             const verifyMandatoryFields = (form) => {
@@ -457,7 +471,7 @@
                 let table = document.getElementById("tbody-logs");
                 let equipment = document.getElementById("slt-equipment").value;
                 const response = await fetch(
-                    `/records/machine?type=${equipment}`,
+                    `/bitacora/records/machine?type=${equipment}`,
                     {
                         method: "GET",
                     },
@@ -477,7 +491,7 @@
             		<td>${response[i].Lab}</td>
             		<td>${response[i].Equipment}</td>
             		<td>${new Date(response[i].StartDateTime).toLocaleDateString()}</td>
-            		<td><a href="/records/open?id=${response[i].ID}">Detalles</a></td>
+            		<td><a href="/bitacora/records/open?id=${response[i].ID}">Detalles</a></td>
             	</tr>
             `;
                     }

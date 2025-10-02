@@ -3,7 +3,6 @@ package models
 import (
 	"bitacora/config"
 	"bitacora/core"
-	"fmt"
 	"time"
 )
 
@@ -47,6 +46,7 @@ func GetRecordByID(id string) (core.Record, error) {
 		&record.Comments,
 		&record.Timestamp,
 	)
+
 	if err != nil {
 		return core.Record{}, err
 	}
@@ -64,7 +64,6 @@ func GetRecordByMachine(machine string) ([]core.Record, error) {
 		LIMIT 10
 	`, machine)
 	if err != nil {
-		fmt.Print(err.Error())
 		return nil, err
 	}
 
@@ -90,6 +89,5 @@ func GetRecordByMachine(machine string) ([]core.Record, error) {
 		}
 		records = append(records, r)
 	}
-	fmt.Print(records)
 	return records, nil
 }

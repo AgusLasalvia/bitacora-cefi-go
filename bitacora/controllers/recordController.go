@@ -3,7 +3,6 @@ package controllers
 import (
 	"bitacora/core"
 	"bitacora/models"
-	"fmt"
 	"net/http"
 	"time"
 
@@ -28,7 +27,6 @@ func (rc *RecordController) AddRecord(c *gin.Context) {
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error al crear registro"})
-		fmt.Print(err.Error())
 		return
 	}
 
@@ -38,7 +36,6 @@ func (rc *RecordController) AddRecord(c *gin.Context) {
 func (rc *RecordController) GetRecordByID(c *gin.Context) {
 
 	id := c.Query("id")
-	fmt.Print(id)
 	if id == "" {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "No se ha ingresado ningun ID para buscar"})
 		return
