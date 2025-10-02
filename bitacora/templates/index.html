@@ -327,7 +327,7 @@
                                     <th>Nombre</th>
                                     <th>Laboratorio</th>
                                     <th>Equipo</th>
-                                    <th>Detalles</th>
+                                    <th>Fechas/Hora</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody-logs"></tbody>
@@ -383,7 +383,6 @@
                     returned: returned,
                 };
 
-                //
                 verifyMandatoryFields(form)
                     ? submitForm(form)
                     : alert("Ingreso incorrecto, revise campos");
@@ -458,28 +457,29 @@
                 let table = document.getElementById("tbody-logs");
                 let equipment = document.getElementById("slt-equipment").value;
                 const response = await fetch(
-                    `/bitacora/logs/logs?machine=${equipment}`,
+                    `/records/machine?type=${equipment}`,
                     {
                         method: "GET",
                     },
                 )
                     .then((response) => response.json())
                     .then((data) => {
+                        console.log(data);
                         return data;
                     });
                 table.innerHTML = "";
                 if (response.count != 0) {
                     for (let i = 0; i < response.length; i++) {
                         table.innerHTML += `
-				<tr>
-					<td>${response[i].id}</td>
-					<td>${response[i].lab}</td>
-					<td>${response[i].equipment}</td>
-					<td>${formatedDate(response[i].startDateTime.split("T")[0].split("-"))}</td>
-					<td>${response[i].startDateTime.split("T")[1].split(".")[0]}</td>
-					<td><a href="/bitacora/item?id=${response[i].id}">Detalles</a></td>
-				</tr>
-			`;
+            	<tr>
+
+            		<td>${response[i].Name}</td>
+            		<td>${response[i].Lab}</td>
+            		<td>${response[i].Equipment}</td>
+            		<td>${new Date(response[i].StartDateTime).toLocaleDateString()}</td>
+            		<td><a href="/records/open?id=${response[i].ID}">Detalles</a></td>
+            	</tr>
+            `;
                     }
                 }
             };

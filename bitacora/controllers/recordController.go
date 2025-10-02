@@ -67,7 +67,9 @@ func (rc *RecordController) GetRecordByID(c *gin.Context) {
 }
 
 func (rc *RecordController) GetRecordByMachine(c *gin.Context) {
-	records, err := models.GetRecordByMachine(c.Query("machine"))
+	machineType := c.Query("type")
+
+	records, err := models.GetRecordByMachine(machineType)
 	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": "NO se econtraron registros para ese equipo"})
 		return
