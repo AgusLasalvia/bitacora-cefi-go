@@ -484,13 +484,16 @@
                 table.innerHTML = "";
                 if (response.count != 0) {
                     for (let i = 0; i < response.length; i++) {
+                        date = new Date(response[i].StartDateTime)
+                            .toLocaleDateString()
+                            .split("/");
                         table.innerHTML += `
             	<tr>
 
             		<td>${response[i].Name}</td>
             		<td>${response[i].Lab}</td>
             		<td>${response[i].Equipment}</td>
-            		<td>${new Date(response[i].StartDateTime).toLocaleDateString()}</td>
+            		<td>${date[1]}/${date[0]}/${date[2]}</td>
             		<td><a href="/records/open?id=${response[i].ID}" class="details btn btn-dark btn-lg">Detalles</a></td>
             	</tr>
             `;
