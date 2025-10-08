@@ -1,9 +1,5 @@
 .env
 
-bitacora/bitacora
-bitacora/bitacora.*
-bitacora/binary
-
-landing-page/node_modules
-landing-page/dist
-landing-page/.astro
+bitacora
+bitacora.*
+binary
