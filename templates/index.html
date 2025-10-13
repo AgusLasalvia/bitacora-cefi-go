@@ -389,21 +389,6 @@
                     : alert("Ingreso incorrecto, revise campos");
             };
 
-            const submitForm = (form) => {
-                fetch("/records/add", {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    method: "POST",
-                    body: JSON.stringify(form),
-                }).then((incoming) => {
-                    incoming.status != 201
-                        ? error(incoming)
-                        : (alert("Ingresado exitosamente"),
-                          cleanFieldsOnSuccess());
-                });
-            };
-
             const cleanFieldsOnSuccess = () => {
                 document.getElementById("name").value = "";
                 document.getElementById("lab").value = "";
@@ -471,7 +456,7 @@
                 let table = document.getElementById("tbody-logs");
                 let equipment = document.getElementById("slt-equipment").value;
                 const response = await fetch(
-                    `/records/machine?type=${equipment}`,
+                    `/bitacora/records/machine?type=${equipment}`,
                     {
                         method: "GET",
                     },
@@ -494,7 +479,7 @@
             		<td>${response[i].Lab}</td>
             		<td>${response[i].Equipment}</td>
             		<td>${date[1]}/${date[0]}/${date[2]}</td>
-            		<td><a href="/records/open?id=${response[i].ID}" class="details btn btn-dark btn-lg">Detalles</a></td>
+            		<td><a href="/bitacora/records/open?id=${response[i].ID}" class="details btn btn-dark btn-lg">Detalles</a></td>
             	</tr>
             `;
                     }
